@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Discount Tool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="font-family: Arial; text-align:center; margin-top:50px;">
+
+<h2>Discount Calculator</h2>
+
+<input id="newPrice" placeholder="New Price"><br><br>
+<input id="oldDiscount" placeholder="Old Discount"><br><br>
+<input id="oldAmount" placeholder="Old Amount"><br><br>
+
+<button onclick="calculate()">Calculate</button>
+
+<h3 id="result"></h3>
+
+<script>
+function calculate() {
+  let newPrice = parseFloat(document.getElementById("newPrice").value);
+  let oldDiscount = parseFloat(document.getElementById("oldDiscount").value);
+  let oldAmount = parseFloat(document.getElementById("oldAmount").value);
+
+  let result = newPrice * (1 - (oldDiscount / (oldDiscount + (oldAmount - 1.03)))) * 1.03;
+
+  document.getElementById("result").innerText =
+    "Result: " + result.toFixed(2);
+}
+</script>
+
+</body>
+</html>
